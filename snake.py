@@ -58,7 +58,7 @@ while running:
 
     # Draw the snake and food
     screen.fill(BLACK)
-    pygame.draw.circle(screen, GREEN, [food_x, food_y, snake_size, snake_size])
+    pygame.draw.rect(screen, GREEN, [food_x, food_y, snake_size, snake_size])
     snake_head = []
     snake_head.append(snake_x)
     snake_head.append(snake_y)

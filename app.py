@@ -6,7 +6,7 @@ import matplotlib.animation as animation
 grid_size = (50, 50)
 
 # Create a random initial state for the grid
-initial_state = np.random.choice([0, 1], size=grid_size, p=[0.5, 0.5])
+initial_state = np.random.choice([0, 1], size=grid_size, p=[0.8, 0.2])
 
 # Define the rules of the game
 def update_state(state):
@@ -20,7 +20,7 @@ def update_state(state):
 fig, ax = plt.subplots()
 
 # Create an image plot for the grid
-img = ax.imshow(initial_state, cmap='binary')
+img = ax.imshow(initial_state, cmap='seismic')
 
 # Function to update the grid state for each animation frame
 def update(frame):
