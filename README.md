@@ -1,8 +1,5 @@
-# Snake-Keziah_Tabassomi-CDOF2
-You know the game.
-
 # Snake Game
-
+You know the game.
 ## Description
 
 This Python project is a simple Game of snake where players try to get the longest snake possible by eating apples randomly placed on the map.
