@@ -4,6 +4,35 @@ You know the game.
 
 This Python project is a simple Game of snake where players try to get the longest snake possible by eating apples randomly placed on the map.
 
+## Instructions:
+
+1. **Snake Movement:**
+   - Use the arrow keys to control the snake's movement:
+     - **Left Arrow:** Move the snake to the left.
+     - **Right Arrow:** Move the snake to the right.
+     - **Up Arrow:** Move the snake upwards.
+     - **Down Arrow:** Move the snake downwards.
+
+2. **Eat the Food:**
+   - The goal is to eat the green food represented by a rectangle.
+   - Each time the snake eats the food, its length increases.
+
+3. **Avoid Collisions:**
+   - Avoid colliding with the edges of the game window.
+   - Avoid colliding with the snake's own body.
+
+4. **Pause/Resume the Game:**
+   - Press the **Spacebar** to pause or resume the game.
+   - While paused, the snake's movement is halted, and the game is temporarily stopped.
+   - Press the Spacebar again to resume the game.
+
+5. **Quit the Game:**
+   - Click the close button (X) on the game window to exit the game.
+
+6. **Game Over:**
+   - If the snake collides with the edges or itself, the game ends.
+   - To play again, you can restart the script.
+
 ## How to Run the Project
 
 1. Make sure you have Python installed on your machine.
