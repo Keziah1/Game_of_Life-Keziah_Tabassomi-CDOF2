@@ -32,6 +32,8 @@ food_y = round(random.randrange(0, height - snake_size) / 20) * 20
 running = True
 clock = pygame.time.Clock()
 
+paused = False
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -39,32 +41,42 @@ while running:
 
         # Handle key presses
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                snake_x_change = -snake_size
-                snake_y_change = 0
-            elif event.key == pygame.K_RIGHT:
-                snake_x_change = snake_size
-                snake_y_change = 0
-            elif event.key == pygame.K_UP:
-                snake_y_change = -snake_size
-                snake_x_change = 0
-            elif event.key == pygame.K_DOWN:
-                snake_y_change = snake_size
-                snake_x_change = 0
+            if event.key == pygame.K_SPACE:
+                # Toggle pause state when the spacebar is pressed
+                paused = not paused
 
-    # Update the snake's position
-    snake_x += snake_x_change
-    snake_y += snake_y_change
+            if not paused:
+                # Handle other key presses only when the game is not paused
+                if event.key == pygame.K_LEFT:
+                    snake_x_change = -snake_size
+                    snake_y_change = 0
+                elif event.key == pygame.K_RIGHT:
+                    snake_x_change = snake_size
+                    snake_y_change = 0
+                elif event.key == pygame.K_UP:
+                    snake_y_change = -snake_size
+                    snake_x_change = 0
+                elif event.key == pygame.K_DOWN:
+                    snake_y_change = snake_size
+                    snake_x_change = 0
+
+    if not paused:
+        # Update the snake's position
+        snake_x += snake_x_change
+        snake_y += snake_y_change
 
     # Draw the snake and food
     screen.fill(BLACK)
     pygame.draw.rect(screen, GREEN, [food_x, food_y, snake_size, snake_size])
-    snake_head = []
-    snake_head.append(snake_x)
-    snake_head.append(snake_y)
-    snake_body.append(snake_head)
-    if len(snake_body) > snake_length:
-        del snake_body[0]
+    
+    if not paused:
+        # Draw the snake's body only when the game is not paused
+        snake_head = []
+        snake_head.append(snake_x)
+        snake_head.append(snake_y)
+        snake_body.append(snake_head)
+        if len(snake_body) > snake_length:
+            del snake_body[0]
 
     # Check for collision with food
     if snake_x == food_x and snake_y == food_y:
